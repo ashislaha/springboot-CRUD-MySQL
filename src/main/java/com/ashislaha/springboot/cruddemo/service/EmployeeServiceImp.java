@@ -33,11 +33,7 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public Employee findById(Integer id) {
-        Employee employee = employeeDOA.findById(id);
-        if (employee == null) {
-            throw new RuntimeException("Employee didn't find out with employeeId: " + id);
-        }
-        return employee;
+        return employeeDOA.findById(id);
     }
 
     @Override
@@ -49,9 +45,6 @@ public class EmployeeServiceImp implements EmployeeService {
     @Override
     @Transactional
     public void deleteById(Integer id) {
-        Employee employee = findById(id);
-        if (employee != null) {
-            employeeDOA.deleteById(id);
-        }
+        employeeDOA.deleteById(id);
     }
 }

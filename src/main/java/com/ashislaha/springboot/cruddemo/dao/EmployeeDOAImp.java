@@ -36,7 +36,11 @@ public class EmployeeDOAImp implements EmployeeDOA {
 
     @Override
     public Employee findById(Integer id) {
-        return entityManager.find(Employee.class, id);
+        Employee employee = entityManager.find(Employee.class, id);
+        if (employee == null) {
+            throw new RuntimeException("Employee didn't find out with employeeId: " + id);
+        }
+        return employee;
     }
 
     /// Update
@@ -49,7 +53,9 @@ public class EmployeeDOAImp implements EmployeeDOA {
     /// Delete
     @Override
     public void deleteById(Integer id) {
-        Employee emp = entityManager.find(Employee.class, id);
-        entityManager.remove(emp);
+        Employee emp = findById(id);
+        if (emp != null) {
+            entityManager.remove(emp);
+        }
     }
 }
