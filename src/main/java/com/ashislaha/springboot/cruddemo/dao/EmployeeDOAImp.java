@@ -19,12 +19,6 @@ public class EmployeeDOAImp implements EmployeeDOA {
         this.entityManager = entityManager;
     }
 
-    /// Create
-    @Override
-    public void insert(Employee employee) {
-       entityManager.persist(employee);
-    }
-
     /// Read
     @Override
     public List<Employee> findAll() {
@@ -43,9 +37,9 @@ public class EmployeeDOAImp implements EmployeeDOA {
         return employee;
     }
 
-    /// Update
+    /// Create + Update
     @Override
-    public Employee update(Employee employee) {
+    public Employee save(Employee employee) {
         Employee dbEmployee = entityManager.merge(employee);
         return dbEmployee;
     }

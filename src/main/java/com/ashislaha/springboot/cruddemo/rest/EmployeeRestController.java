@@ -36,14 +36,14 @@ public class EmployeeRestController {
     public Employee addEmployee(@RequestBody Employee employee) {
         // if we got id in the request body, set id to 0 so that it will create a new object
         employee.setId(0);
-        Employee dbEmployee = employeeService.update(employee);
+        Employee dbEmployee = employeeService.save(employee);
         return dbEmployee;
     }
 
     /// Update an existing employee
     @PutMapping("/employees")
     public Employee updateEmployee(@RequestBody Employee employee) {
-        Employee dbEmployee = employeeService.update(employee);
+        Employee dbEmployee = employeeService.save(employee);
         return dbEmployee;
     }
 

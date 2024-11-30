@@ -6,9 +6,6 @@ import java.util.List;
 
 public interface EmployeeDOA {
 
-    /// Create
-    void insert(Employee employee);
-
     /// Read - Find list of employees
     List<Employee> findAll();
 
@@ -16,7 +13,7 @@ public interface EmployeeDOA {
     Employee findById(Integer id);
 
     /// Update + Create - Update an employee record if present, otherwise insert it
-    Employee update(Employee employee);
+    Employee save(Employee employee);
 
     /// Delete - delete a record by Id if present, otherwise no-operation
     void deleteById(Integer id);
