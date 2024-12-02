@@ -36,13 +36,11 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
-    @Transactional
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
     }
 
     @Override
-    @Transactional
     public void deleteById(Integer id) {
         employeeRepository.deleteById(id);
     }
